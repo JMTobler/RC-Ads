@@ -1,12 +1,274 @@
-:root{ --max:900px; font-family: Arial, Helvetica, sans-serif; color:#222 }
-body{ display:flex; justify-content:center; padding:24px; background:#f6f8fa }
-.container{ width:100%; max-width:var(--max); background:white; padding:20px 28px; box-shadow:0 6px 18px rgba(0,0,0,0.08); border-radius:8px }
-header h1{ margin:0 0 6px 0 }
-.form{ display:flex; flex-direction:column; gap:10px; margin-bottom:12px }
-.form label{ display:flex; flex-direction:column; font-size:14px }
-.form input, .form textarea{ padding:8px; border:1px solid #ddd; border-radius:6px }
-.form button{ align-self:flex-start; padding:8px 14px; border-radius:6px; border:none; background:#2b7aee; color:white; cursor:pointer }
-.msg{ margin-top:8px; color:green }
-.table{ width:100%; border-collapse:collapse; margin-top:12px }
-.table th, .table td{ padding:8px 6px; border-bottom:1px solid #eee; text-align:left }
-.table button{ padding:6px 10px; border-radius:6px; border:1px solid #ccc; background:white; cursor:pointer }
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    color: #333;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.error-message {
+    color: #dc3545;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.success-message {
+    color: #28a745;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.auth-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #f0f2f5;
+}
+
+.login-form,
+.register-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login-form h2,
+.register-container h3 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 24px;
+}
+
+.login-form div,
+.register-container div {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-form label,
+.register-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.login-form input,
+.register-container input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.login-form button,
+.register-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover,
+.register-container button:hover {
+    background-color: #0056b3;
+}
+
+.toggle-view {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #666;
+}
+
+.toggle-view span {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.dashboard-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.dashboard-container h1 {
+    color: #222;
+    margin-bottom: 25px;
+    font-size: 32px;
+}
+
+.logout-button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+.schedule-form-container {
+    margin-bottom: 40px;
+    padding: 25px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.schedule-form-container h2 {
+    font-size: 22px;
+    color: #007bff;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.form-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.schedule-form-container button {
+    grid-column: span 1;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.schedule-form-container button:hover {
+    background-color: #1e7e34;
+}
+
+.appointment-list-container {
+    padding: 25px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.appointment-list-container h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.appointment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.appointment-table th,
+.appointment-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.appointment-table th {
+    background-color: #e9ecef;
+    color: #495057;
+    font-weight: bold;
+}
+
+.appointment-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.no-appointments-message {
+    text-align: center;
+    padding: 20px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.appointment-table .remove-button {
+    padding: 6px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.appointment-table .remove-button:hover {
+    background-color: #c82333;
+}

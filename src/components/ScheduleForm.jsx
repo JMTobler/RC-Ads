@@ -34,21 +34,56 @@ export default function ScheduleForm({onSubmit}){
   }
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="schedule-form-container" onSubmit={handleSubmit}>
       <h2>Agendar Prova</h2>
-      <label>Nome do Aluno
-        <input value={student} onChange={e=>setStudent(e.target.value)} placeholder="Nome completo"/>
-      </label>
-      <label>Curso
-        <input value={course} onChange={e=>setCourse(e.target.value)} placeholder="Curso"/>
-      </label>
-      <label>Data da Prova
-        <input type="datetime-local" value={examDate} onChange={e=>setExamDate(e.target.value)}/>
-      </label>
-      <label>Observações
-        <textarea value={notes} onChange={e=>setNotes(e.target.value)} rows="3"/>
-      </label>
-      <button type="submit" disabled={loading}>{loading ? 'Salvando...' : 'Agendar'}</button>
+
+      <div className="form-fields-grid">
+        
+        <div className="form-group">
+          <label htmlFor="student-name">Nome do Aluno</label>
+          <input 
+            id="student-name"
+            value={student} 
+            onChange={e=>setStudent(e.target.value)} 
+            placeholder="Nome completo"
+          />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="course-name">Curso</label>
+          <input 
+            id="course-name"
+            value={course} 
+            onChange={e=>setCourse(e.target.value)} 
+            placeholder="Curso"
+          />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="exam-date">Data da Prova</label>
+          <input 
+            id="exam-date"
+            type="datetime-local" 
+            value={examDate} 
+            onChange={e=>setExamDate(e.target.value)}
+          />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="notes">Observações</label>
+          <textarea 
+            id="notes"
+            value={notes} 
+            onChange={e=>setNotes(e.target.value)} 
+            rows="3"
+          />
+        </div>
+
+        <button type="submit" disabled={loading}>
+          {loading ? 'Salvando...' : 'Agendar'}
+        </button>
+      </div>
+
       {msg && <p className="msg">{msg}</p>}
     </form>
   )
