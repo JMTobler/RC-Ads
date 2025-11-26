@@ -1,0 +1,12 @@
+:root{ --max:900px; font-family: Arial, Helvetica, sans-serif; color:#222 }
+body{ display:flex; justify-content:center; padding:24px; background:#f6f8fa }
+.container{ width:100%; max-width:var(--max); background:white; padding:20px 28px; box-shadow:0 6px 18px rgba(0,0,0,0.08); border-radius:8px }
+header h1{ margin:0 0 6px 0 }
+.form{ display:flex; flex-direction:column; gap:10px; margin-bottom:12px }
+.form label{ display:flex; flex-direction:column; font-size:14px }
+.form input, .form textarea{ padding:8px; border:1px solid #ddd; border-radius:6px }
+.form button{ align-self:flex-start; padding:8px 14px; border-radius:6px; border:none; background:#2b7aee; color:white; cursor:pointer }
+.msg{ margin-top:8px; color:green }
+.table{ width:100%; border-collapse:collapse; margin-top:12px }
+.table th, .table td{ padding:8px 6px; border-bottom:1px solid #eee; text-align:left }
+.table button{ padding:6px 10px; border-radius:6px; border:1px solid #ccc; background:white; cursor:pointer }
